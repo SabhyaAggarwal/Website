@@ -41,8 +41,8 @@
         const ballRadius = 10;
         let ballX = canvas.width / 2;
         let ballY = 30;
-        let ballDY = 2; // Falling speed
-        let ballDX = 2; // Horizontal movement speed
+        let ballDY = 100; // Falling speed
+        let ballDX = 100; // Horizontal movement speed
 
         // Other game variables
         let rightPressed = false;
@@ -140,7 +140,7 @@
         function resetBall() {
             ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
             ballY = 30;
-            ballDY = 2; // Reset falling speed
+            ballDY = 100; // Reset falling speed
         }
 
         // Start the game loop
