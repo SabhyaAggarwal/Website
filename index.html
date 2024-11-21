@@ -106,17 +106,21 @@
 
             // Bounce off the walls
             if (ballX + ballDX > canvas.width - ballRadius || ballX + ballDX < ballRadius) {
-                ballDX = -ballDX;  // Bounce off side walls
+                ballDX = -ballDX; // Bounce off side walls
             }
 
             // Bounce off the top
             if (ballY + ballDY < ballRadius) {
-                ballDY = -ballDY;  // Bounce off the top wall
+                ballDY = -ballDY; // Bounce off the top wall
             }
 
             // Check if the ball hits the paddle
-            if (ballY + ballDY > canvas.height - ballRadius - paddleHeight - 10 && ballX > paddleX && ballX < paddleX + paddleWidth) {
-                ballDY = -ballDY;  // Bounce ball up
+            if (
+                ballY + ballDY > canvas.height - ballRadius - paddleHeight - 10 && // Check if the ball is at paddle height
+                ballX > paddleX && ballX < paddleX + paddleWidth // Check if the ball is within the paddle's horizontal range
+            ) {
+                ballDY = -Math.abs(ballDY); // Ensure the ball always bounces upward
+                ballY = canvas.height - ballRadius - paddleHeight - 10; // Position the ball just above the paddle
                 score += 1;
             }
 
