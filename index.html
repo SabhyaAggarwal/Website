@@ -41,8 +41,8 @@
         const ballRadius = 10;
         let ballX = canvas.width / 2;
         let ballY = 30;
-        let ballDY = 2; // Falling speed
-        let ballDX = 2; // Horizontal movement speed
+        let ballDY = 3; // Increased falling speed
+        let ballDX = 3; // Increased horizontal movement speed
 
         // Other game variables
         let rightPressed = false;
@@ -132,9 +132,9 @@
 
             // Move the paddle
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
-                paddleX += 7;
+                paddleX += 9; // Increased paddle speed
             } else if (leftPressed && paddleX > 0) {
-                paddleX -= 7;
+                paddleX -= 9; // Increased paddle speed
             }
 
             requestAnimationFrame(update);
@@ -144,7 +144,7 @@
         function resetBall() {
             ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
             ballY = 30;
-            ballDY = 2; // Reset falling speed
+            ballDY = 3; // Reset falling speed
         }
 
         // Start the game loop
